@@ -1,1 +1,2 @@
-export 'di.dart';
+export './widget.dart';
+export './di.dart';
