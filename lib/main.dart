@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learning/shared/theme/theme_color.dart';
+import 'app/app.dart';
 
-void main() {
+void main() async {
+  await setupLocatorAsync();
+
   runApp(const MyApp());
 }
 
