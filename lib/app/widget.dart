@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/shared/theme/theme.dart';
+import './theme/theme_data.dart';
 import './router.dart';
 
 class DamnTvApp extends StatelessWidget {

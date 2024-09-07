@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import './theme_color.dart';
+import 'package:flutter_learning/features/channel_card/channel_card.dart';
+import 'package:flutter_learning/widgets/search/ui/theme/colors.dart';
+import '../../shared/theme/theme_color.dart';
 
 class AppTheme {
   static ThemeData get lightTheme {
@@ -10,6 +12,10 @@ class AppTheme {
       appBarTheme: _appBarTheme,
       textTheme: _textTheme,
       iconTheme: _iconTheme,
+      extensions: <ThemeExtension<dynamic>>[
+        ChannelCardThemeColors.light,
+        SearchHeaderThemeColors.light
+      ]
     );
   }
 }
@@ -18,19 +24,19 @@ ColorScheme _colorScheme = ColorScheme.fromSeed(
   seedColor: ThemeColor.accent,
 );
 
-AppBarTheme _appBarTheme = AppBarTheme(
+AppBarTheme _appBarTheme = const AppBarTheme(
   centerTitle: true,
-  toolbarHeight: 50,
-  titleTextStyle: const TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.bold,
-    color: ThemeColor.white,
-  ),
-  iconTheme: _iconTheme.copyWith(
-    color: ThemeColor.white,
-  ),
-  backgroundColor: ThemeColor.black,
-  scrolledUnderElevation: 0.0,
+  toolbarHeight: 0,
+  // titleTextStyle: const TextStyle(
+  //   fontSize: 20,
+  //   fontWeight: FontWeight.bold,
+  //   color: ThemeColor.white,
+  // ),
+  // iconTheme: _iconTheme.copyWith(
+  //   color: ThemeColor.white,
+  // ),
+  // backgroundColor: ThemeColor.black,
+  // scrolledUnderElevation: 0.0,
 );
 
 const TextTheme _textTheme = TextTheme(

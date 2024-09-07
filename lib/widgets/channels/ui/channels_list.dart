@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_learning/entities/channels/channel_details.dart';
-import 'package:flutter_learning/features/channels/channel_card.dart';
+import 'package:flutter_learning/features/channel_card/channel_card.dart';
 
 class ChannelsList extends StatefulWidget {
   const ChannelsList({
