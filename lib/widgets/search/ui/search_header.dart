@@ -19,12 +19,11 @@ class SearchHeader extends StatelessWidget{
             tooltip: 'Navigation menu',
             onPressed: null, // null disables the button
           ),
-          // Expanded expands its child
-          // to fill the available space.
           IconButton(
             icon: Icon(
                 color: context.searchHeaderColors.icons,
-                Icons.search),
+                Icons.search
+            ),
             tooltip: 'Search',
             onPressed: null,
           ),

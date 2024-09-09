@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learning/entities/tag.dart';
 import 'package:flutter_learning/entities/channels/channel_details.dart';
+import 'package:flutter_learning/shared/theme/theme.dart';
+import 'package:flutter_learning/shared/ui/width_wrapper/width_wrapper.dart';
 import 'package:flutter_learning/widgets/channels/channels.dart';
 import 'package:flutter_learning/widgets/search/search.dart';
 
@@ -37,11 +39,12 @@ class _HomeScreenState extends State<HomeScreen> {
     @override
     Widget build(BuildContext context) {
         return Scaffold(
+            backgroundColor: ThemeColor.secondaryWhite,
             appBar: AppBar(),
             body: const Column(
                 children: <Widget>[
                     SearchHeader(),
-                    ChannelsList(channels: channels,)
+                    ChannelsList(channels: channels)
                 ],
             )
         );
