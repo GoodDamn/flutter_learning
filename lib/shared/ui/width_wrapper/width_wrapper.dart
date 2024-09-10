@@ -13,11 +13,11 @@ class WidthWrapper extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.topCenter,
+      alignment: Alignment.center,
       child: ConstrainedBox(
-          constraints: BoxConstraints.expand(width: this.maxWidth),
-          child: child,
-      ),
+        constraints: BoxConstraints(maxWidth: this.maxWidth),
+        child: this.child,
+      )
     );
   }
 
