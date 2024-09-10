@@ -12,31 +12,47 @@ class ChannelCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-      Container(
+    return Container(
+      decoration: BoxDecoration(
         color: context.channelCardColors.background,
+        borderRadius: const BorderRadius.all(Radius.circular(20))
+      ),
+      child: Padding(
+        padding:  const EdgeInsets.all(20),
         child: Row(
-        children: [
-          Container(
-           width: 100,
-           height: 100,
-           child: Image.network(channel.imageUrl),
-          ),
-          Expanded(
-            child: Column(
-              children: [
-                Text(
-                  overflow: TextOverflow.clip,
-                  channel.name
-                ),
-                Text(
-                  overflow: TextOverflow.clip,
-                  channel.description
+          children: [
+            ConstrainedBox (
+              constraints: const BoxConstraints(
+                minWidth: 50,
+                maxWidth: 80,
+                minHeight: 50,
+                maxHeight: 80
+              ),
+              child: Image.network(channel.imageUrl),
+            ),
+            Expanded (
+              child: Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child:Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                      overflow: TextOverflow.ellipsis,
+                      channel.name
+                    ),
+                    Text(
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      channel.description
+                    )
+                  ]
                 )
-              ],
+              )
             )
-          )
-        ],
+          ],
+        )
       )
     );
   }

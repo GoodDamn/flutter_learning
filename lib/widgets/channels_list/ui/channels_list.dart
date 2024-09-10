@@ -24,13 +24,14 @@ class ChannelsListState extends State<ChannelsList> {
       return ChannelCard(channel: channel);
     }).toList();
 
-    return Expanded(
-      child: Container(
-        color: Colors.greenAccent,
-        child: ListView(
-          children: children
-        ),
-      ),
+    return ListView.builder(
+      padding: const EdgeInsets.only(top: 10),
+      itemCount: children.length,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.all(10),
+          child: children[index]);
+      },
     );
   }
 }

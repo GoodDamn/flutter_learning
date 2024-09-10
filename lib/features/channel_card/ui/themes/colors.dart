@@ -9,7 +9,7 @@ class ChannelCardThemeColors extends ThemeExtension<ChannelCardThemeColors> {
   });
 
   static get light => const ChannelCardThemeColors(
-    background: ThemeColor.secondaryWhite
+    background: ThemeColor.white
   );
 
   @override

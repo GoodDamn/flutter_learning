@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learning/entities/tag.dart';
 import 'package:flutter_learning/entities/channels/channel_details.dart';
-import 'package:flutter_learning/widgets/channels/channels.dart';
-import 'package:flutter_learning/widgets/search/search.dart';
+import 'package:flutter_learning/shared/theme/theme.dart';
+import 'package:flutter_learning/shared/ui/width_wrapper/width_wrapper.dart';
+import 'package:flutter_learning/widgets/widgets.dart';
 
 
-class HomeScreen extends StatefulWidget {
-    const HomeScreen({super.key});
+class HomePage extends StatefulWidget {
+    const HomePage({super.key});
     @override
-    State<HomeScreen> createState() => _HomeScreenState();
+    State<HomePage> createState() => _HomePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomePageState extends State<HomePage> {
     static const channels = [
         ChannelDetails(
             id: 105,
@@ -37,11 +38,16 @@ class _HomeScreenState extends State<HomeScreen> {
     @override
     Widget build(BuildContext context) {
         return Scaffold(
+            backgroundColor: ThemeColor.secondaryWhite,
             appBar: AppBar(),
-            body: const Column(
+            body: Column(
                 children: <Widget>[
                     SearchHeader(),
-                    ChannelsList(channels: channels,)
+                    Expanded(
+                        child: WidthWrapper(
+                            child: ChannelsList(channels: channels)
+                        )
+                    )
                 ],
             )
         );
