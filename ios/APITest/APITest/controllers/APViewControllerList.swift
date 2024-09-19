@@ -17,6 +17,8 @@ final class APViewControllerList
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Channel's list"
+        
         print("LIST: viewDidLoad:")
         
         mCollectionView = APCollectionViewChannels(

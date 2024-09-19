@@ -23,6 +23,7 @@
 		250D7CB62C9C2B6C0062EF85 /* APCollectionViewChannels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250D7CB52C9C2B6C0062EF85 /* APCollectionViewChannels.swift */; };
 		250D7CB92C9C2EB60062EF85 /* APViewCellCollectionChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250D7CB82C9C2EB60062EF85 /* APViewCellCollectionChannel.swift */; };
 		250D7CBB2C9C322B0062EF85 /* APViewControllerNavigationMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250D7CBA2C9C322B0062EF85 /* APViewControllerNavigationMain.swift */; };
+		250D7CBE2C9C39C50062EF85 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250D7CBD2C9C39C50062EF85 /* UIImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		250D7CB52C9C2B6C0062EF85 /* APCollectionViewChannels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APCollectionViewChannels.swift; sourceTree = "<group>"; };
 		250D7CB82C9C2EB60062EF85 /* APViewCellCollectionChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APViewCellCollectionChannel.swift; sourceTree = "<group>"; };
 		250D7CBA2C9C322B0062EF85 /* APViewControllerNavigationMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APViewControllerNavigationMain.swift; sourceTree = "<group>"; };
+		250D7CBD2C9C39C50062EF85 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		250D7C762C9C20130062EF85 /* APITest */ = {
 			isa = PBXGroup;
 			children = (
+				250D7CBC2C9C39B30062EF85 /* extensions */,
 				250D7CB42C9C2B510062EF85 /* views */,
 				250D7CAF2C9C28C10062EF85 /* models */,
 				250D7CA92C9C28730062EF85 /* services */,
@@ -202,6 +205,14 @@
 				250D7CB82C9C2EB60062EF85 /* APViewCellCollectionChannel.swift */,
 			);
 			path = cells;
+			sourceTree = "<group>";
+		};
+		250D7CBC2C9C39B30062EF85 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				250D7CBD2C9C39C50062EF85 /* UIImageView.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +352,7 @@
 				250D7C782C9C20130062EF85 /* AppDelegate.swift in Sources */,
 				250D7C7A2C9C20130062EF85 /* SceneDelegate.swift in Sources */,
 				250D7CB12C9C28CE0062EF85 /* APModelChannel.swift in Sources */,
+				250D7CBE2C9C39C50062EF85 /* UIImageView.swift in Sources */,
 				250D7CB62C9C2B6C0062EF85 /* APCollectionViewChannels.swift in Sources */,
 				250D7CB32C9C29D60062EF85 /* APModelChannels.swift in Sources */,
 				250D7CAE2C9C28B30062EF85 /* APDelegateOnGetChannels.swift in Sources */,

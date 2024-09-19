@@ -22,6 +22,17 @@ final class APViewCellCollectionChannel
         }
     }
     
+    var imageUrl: String? {
+        didSet {
+            guard let v = imageUrl else {
+                return
+            }
+            mImageView.loadUrl(
+                string: v
+            )
+        }
+    }
+    
     var imageChannel: UIImage? {
         get {
             mImageView.image

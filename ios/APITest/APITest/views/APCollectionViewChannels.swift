@@ -76,7 +76,6 @@ extension APCollectionViewChannels
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         let index = indexPath.section
-        print(index)
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: APViewCellCollectionChannel.id,
             for: indexPath
@@ -86,6 +85,7 @@ extension APCollectionViewChannels
         }
         
         cell.title = model.name
+        cell.imageUrl = model.imageUrl
         
         return cell
     }
