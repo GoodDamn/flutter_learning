@@ -13,31 +13,19 @@ extension UIImageView {
     func loadUrl(
         string: String
     ) {
-        guard let url = URL(
+        URL(
             string: string
-        ) else {
-            return
-        }
-        
-        URLSession.shared.dataTask(
-            with: URLRequest(
-                url: url
-            )
-        ) { [weak self] data, response, error in
-            
-            guard let data = data, error == nil else {
-                return
-            }
-            
+        )?.loadData {
+            [weak self] data in
             let image = UIImage(
                 data: data
             )
+            
             DispatchQueue.main.async {
+                [weak self] in
                 self?.image = image
             }
-            
-        }.resume()
-        
+        }
     }
     
 }

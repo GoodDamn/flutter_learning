@@ -10,29 +10,35 @@ import Foundation
 final class APServiceChannels {
     
     weak var delegate: APDelegateOnGetChannels? = nil
+    weak var delegateDetails: APDelegateOnGetChannelDetails? = nil
+    
+    func getChannelDetailsAsync(
+        id: Int
+    ) {
+        URL(
+            string: "https://damntv.ru/api/channels/\(id)"
+        )?.loadData { [weak self] data in
+            let decoder = JSONDecoder()
+            do {
+                let details = try decoder.decode(
+                    APModelChannelDetails.self,
+                    from: data
+                )
+                DispatchQueue.main.async { [weak self] in
+                    self?.delegateDetails?.onGetChannelDetails(
+                        data: details
+                    )
+                }
+            } catch {
+                print("ERROR: ", error)
+            }
+        }
+    }
     
     func getChannelsAsync() {
-        
-        guard let url = URL(
+        URL(
             string: "https://damntv.ru/api/channels"
-        ) else {
-            print("url error")
-            return
-        }
-        
-        let request = URLRequest(
-            url: url
-        )
-        
-        print("requesting...")
-        
-        URLSession.shared.dataTask(
-            with: request
-        ) { data, response, error in
-            guard let data = data, error == nil else {
-                return
-            }
-            
+        )?.loadData { [weak self] data in
             let decoder = JSONDecoder()
             do {
                 let channels = try decoder.decode(
@@ -47,10 +53,7 @@ final class APServiceChannels {
             } catch {
                 print("ERROR: ", error)
             }
-            
-            
-            
-        }.resume()
+        }
         
     }
     

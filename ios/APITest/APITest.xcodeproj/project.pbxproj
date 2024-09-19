@@ -24,6 +24,10 @@
 		250D7CB92C9C2EB60062EF85 /* APViewCellCollectionChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250D7CB82C9C2EB60062EF85 /* APViewCellCollectionChannel.swift */; };
 		250D7CBB2C9C322B0062EF85 /* APViewControllerNavigationMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250D7CBA2C9C322B0062EF85 /* APViewControllerNavigationMain.swift */; };
 		250D7CBE2C9C39C50062EF85 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250D7CBD2C9C39C50062EF85 /* UIImageView.swift */; };
+		250D7CC02C9C3C000062EF85 /* APViewControllerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250D7CBF2C9C3C000062EF85 /* APViewControllerDetails.swift */; };
+		250D7CC22C9C3C940062EF85 /* APDelegateOnGetChannelDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250D7CC12C9C3C940062EF85 /* APDelegateOnGetChannelDetails.swift */; };
+		250D7CC42C9C3CC30062EF85 /* APModelChannelDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250D7CC32C9C3CC30062EF85 /* APModelChannelDetails.swift */; };
+		250D7CC62C9C3CF80062EF85 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250D7CC52C9C3CF80062EF85 /* URL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +69,10 @@
 		250D7CB82C9C2EB60062EF85 /* APViewCellCollectionChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APViewCellCollectionChannel.swift; sourceTree = "<group>"; };
 		250D7CBA2C9C322B0062EF85 /* APViewControllerNavigationMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APViewControllerNavigationMain.swift; sourceTree = "<group>"; };
 		250D7CBD2C9C39C50062EF85 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		250D7CBF2C9C3C000062EF85 /* APViewControllerDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APViewControllerDetails.swift; sourceTree = "<group>"; };
+		250D7CC12C9C3C940062EF85 /* APDelegateOnGetChannelDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APDelegateOnGetChannelDetails.swift; sourceTree = "<group>"; };
+		250D7CC32C9C3CC30062EF85 /* APModelChannelDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APModelChannelDetails.swift; sourceTree = "<group>"; };
+		250D7CC52C9C3CF80062EF85 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +159,7 @@
 			children = (
 				250D7C7B2C9C20130062EF85 /* APViewControllerList.swift */,
 				250D7CBA2C9C322B0062EF85 /* APViewControllerNavigationMain.swift */,
+				250D7CBF2C9C3C000062EF85 /* APViewControllerDetails.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -177,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				250D7CAD2C9C28B30062EF85 /* APDelegateOnGetChannels.swift */,
+				250D7CC12C9C3C940062EF85 /* APDelegateOnGetChannelDetails.swift */,
 			);
 			path = delegates;
 			sourceTree = "<group>";
@@ -186,6 +196,7 @@
 			children = (
 				250D7CB02C9C28CE0062EF85 /* APModelChannel.swift */,
 				250D7CB22C9C29D60062EF85 /* APModelChannels.swift */,
+				250D7CC32C9C3CC30062EF85 /* APModelChannelDetails.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -211,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				250D7CBD2C9C39C50062EF85 /* UIImageView.swift */,
+				250D7CC52C9C3CF80062EF85 /* URL.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -346,11 +358,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				250D7CC22C9C3C940062EF85 /* APDelegateOnGetChannelDetails.swift in Sources */,
 				250D7CBB2C9C322B0062EF85 /* APViewControllerNavigationMain.swift in Sources */,
 				250D7CAB2C9C28850062EF85 /* APServiceChannels.swift in Sources */,
+				250D7CC02C9C3C000062EF85 /* APViewControllerDetails.swift in Sources */,
 				250D7C7C2C9C20130062EF85 /* APViewControllerList.swift in Sources */,
+				250D7CC62C9C3CF80062EF85 /* URL.swift in Sources */,
 				250D7C782C9C20130062EF85 /* AppDelegate.swift in Sources */,
 				250D7C7A2C9C20130062EF85 /* SceneDelegate.swift in Sources */,
+				250D7CC42C9C3CC30062EF85 /* APModelChannelDetails.swift in Sources */,
 				250D7CB12C9C28CE0062EF85 /* APModelChannel.swift in Sources */,
 				250D7CBE2C9C39C50062EF85 /* UIImageView.swift in Sources */,
 				250D7CB62C9C2B6C0062EF85 /* APCollectionViewChannels.swift in Sources */,
