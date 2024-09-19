@@ -2,7 +2,10 @@ package good.damn.editor.apitest.services
 
 import android.util.Log
 import good.damn.editor.apitest.APApp
+import good.damn.editor.apitest.extensions.loadJson
 import good.damn.editor.apitest.models.APModelChannel
+import good.damn.editor.apitest.models.APModelChannelDetails
+import good.damn.editor.apitest.services.interfaces.APIListenerOnGetChannel
 import good.damn.editor.apitest.services.interfaces.APIListenerOnGetChannels
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -21,34 +24,38 @@ class APServiceChannels {
     }
 
     var onGetChannels: APIListenerOnGetChannels? = null
+    var onGetChannelDetails: APIListenerOnGetChannel? = null
 
     private var mJob: Job? = null
+    private var mDetailsJob: Job? = null
+
+    fun getChannelDetailsAsync(
+        id: Int
+    ) {
+        mDetailsJob = APApp.scope.launch {
+            val json = URL(
+                "https://damntv.ru/api/channels/$id"
+            ).loadJson()
+
+            val desc = json.getString(
+                "description"
+            )
+
+            APApp.ui {
+                onGetChannelDetails?.onGetChannelDetails(
+                    APModelChannelDetails(
+                        desc
+                    )
+                )
+            }
+        }
+    }
 
     fun getChannelsAsync() {
         mJob = APApp.scope.launch {
-            val url = URL(
+            val jsonObj = URL(
                 "https://damntv.ru/api/channels"
-            )
-            val stream = url.openStream()
-            val buffer = ByteArray(1024)
-            val out = ByteArrayOutputStream()
-            var n: Int
-
-            while (true) {
-                n = stream.read(buffer)
-                if (n == -1) {
-                    break
-                }
-                out.write(buffer, 0, n)
-            }
-
-            stream.close()
-            val data = out.toByteArray()
-            out.close()
-
-            val json = String(data, StandardCharsets.UTF_8)
-
-            val jsonObj = JSONObject(json)
+            ).loadJson()
 
             val count = jsonObj.getInt(
                 "totalCount"
@@ -90,5 +97,6 @@ class APServiceChannels {
 
     fun cancel() {
         mJob?.cancel()
+        mDetailsJob?.cancel()
     }
 }
