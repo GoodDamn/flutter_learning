@@ -70,6 +70,10 @@ final class APViewCellCollectionChannel
             width: frame.width - offsetTitle,
             height: frame.height
         )
+        
+        mLabelTitle.font = mLabelTitle.font.withSize(
+            frame.height * 0.1
+        )
     }
     
 }

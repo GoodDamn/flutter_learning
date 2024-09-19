@@ -22,6 +22,7 @@
 		250D7CB32C9C29D60062EF85 /* APModelChannels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250D7CB22C9C29D60062EF85 /* APModelChannels.swift */; };
 		250D7CB62C9C2B6C0062EF85 /* APCollectionViewChannels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250D7CB52C9C2B6C0062EF85 /* APCollectionViewChannels.swift */; };
 		250D7CB92C9C2EB60062EF85 /* APViewCellCollectionChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250D7CB82C9C2EB60062EF85 /* APViewCellCollectionChannel.swift */; };
+		250D7CBB2C9C322B0062EF85 /* APViewControllerNavigationMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250D7CBA2C9C322B0062EF85 /* APViewControllerNavigationMain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		250D7CB22C9C29D60062EF85 /* APModelChannels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APModelChannels.swift; sourceTree = "<group>"; };
 		250D7CB52C9C2B6C0062EF85 /* APCollectionViewChannels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APCollectionViewChannels.swift; sourceTree = "<group>"; };
 		250D7CB82C9C2EB60062EF85 /* APViewCellCollectionChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APViewCellCollectionChannel.swift; sourceTree = "<group>"; };
+		250D7CBA2C9C322B0062EF85 /* APViewControllerNavigationMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APViewControllerNavigationMain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				250D7C7B2C9C20130062EF85 /* APViewControllerList.swift */,
+				250D7CBA2C9C322B0062EF85 /* APViewControllerNavigationMain.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				250D7CBB2C9C322B0062EF85 /* APViewControllerNavigationMain.swift in Sources */,
 				250D7CAB2C9C28850062EF85 /* APServiceChannels.swift in Sources */,
 				250D7C7C2C9C20130062EF85 /* APViewControllerList.swift in Sources */,
 				250D7C782C9C20130062EF85 /* AppDelegate.swift in Sources */,
