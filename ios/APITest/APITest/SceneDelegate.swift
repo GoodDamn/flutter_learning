@@ -67,8 +67,8 @@ extension SceneDelegate {
         let window = UIWindow(
             windowScene: scene
         )
-        window.overrideUserInterfaceStyle = .dark
         window.rootViewController = controller
+        self.window = window
         window.makeKeyAndVisible()
     }
 }

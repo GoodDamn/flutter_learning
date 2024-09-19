@@ -14,6 +14,7 @@ final class APViewControllerNavigationMain
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("APViewControllerNavigationMain: viewDidLoad:")
     }
     
 }

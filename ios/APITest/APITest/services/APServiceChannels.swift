@@ -16,6 +16,7 @@ final class APServiceChannels {
         guard let url = URL(
             string: "https://damntv.ru/api/channels"
         ) else {
+            print("url error")
             return
         }
         
@@ -23,32 +24,37 @@ final class APServiceChannels {
             url: url
         )
         
+        print("requesting...")
+        
         URLSession.shared.dataTask(
             with: request
-        ) { [weak self] data, response, error in
-            
+        ) { data, response, error in
             guard let data = data, error == nil else {
                 return
             }
             
             let decoder = JSONDecoder()
-            guard let channels = try? decoder.decode(
-                APModelChannels.self,
-                from: data
-            ) else {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                [weak self] in
-                self?.delegate?.onGetChannels(
-                    data: channels.channels
+            do {
+                let channels = try decoder.decode(
+                    APModelChannels.self,
+                    from: data
                 )
+                DispatchQueue.main.async { [weak self] in
+                    self?.delegate?.onGetChannels(
+                        data: channels.channels
+                    )
+                }
+            } catch {
+                print("ERROR: ", error)
             }
             
-        }
+            
+            
+        }.resume()
         
     }
     
-    
+    deinit {
+        print("APServiceChannels: deinit")
+    }
 }

@@ -17,15 +17,24 @@ final class APViewControllerList
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("LIST: viewDidLoad:")
+        
         mCollectionView = APCollectionViewChannels(
             frame: view.frame,
             orientation: .vertical
         )
         
+        if let it = mCollectionView {
+            view.addSubview(it)
+        }
+        
         mService.delegate = self
         mService.getChannelsAsync()
     }
 
+    deinit {
+        print("APViewControllerList: deinit")
+    }
 
 }
 

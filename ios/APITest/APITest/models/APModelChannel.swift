@@ -10,6 +10,7 @@ import Foundation
 struct APModelChannel
 : Decodable {
     let id: Int
-    let title: String
+    let name: String
     let imageUrl: String?
+    let assessment: Double
 }

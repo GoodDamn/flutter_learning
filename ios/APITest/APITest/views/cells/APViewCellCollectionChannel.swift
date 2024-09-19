@@ -41,6 +41,16 @@ final class APViewCellCollectionChannel
         super.init(
             frame: frame
         )
+        
+        mLabelTitle.numberOfLines = 2
+        
+        contentView.addSubview(
+            mImageView
+        )
+        
+        contentView.addSubview(
+            mLabelTitle
+        )
     }
     
     required init?(
@@ -72,7 +82,7 @@ final class APViewCellCollectionChannel
         )
         
         mLabelTitle.font = mLabelTitle.font.withSize(
-            frame.height * 0.1
+            frame.height * 0.4
         )
     }
     

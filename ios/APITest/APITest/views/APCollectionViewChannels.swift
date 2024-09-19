@@ -13,11 +13,12 @@ final class APCollectionViewChannels
     
     var channels: [APModelChannel]? = nil {
         didSet {
+            print("reloadData")
             reloadData()
         }
     }
     
-    private let mCellSize: CGSize
+    private var mCellSize: CGSize = .zero
     
     init(
         frame: CGRect,
@@ -50,11 +51,6 @@ final class APCollectionViewChannels
         super.init(
             coder: coder
         )
-        
-        mCellSize = CGSize(
-            width: frame.width,
-            height: frame.height * 0.1
-        )
     }
 }
 
@@ -80,7 +76,7 @@ extension APCollectionViewChannels
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         let index = indexPath.section
-        
+        print(index)
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: APViewCellCollectionChannel.id,
             for: indexPath
@@ -89,7 +85,9 @@ extension APCollectionViewChannels
             return UICollectionViewCell()
         }
         
-        cell.title = model.title
+        cell.title = model.name
+        
+        return cell
     }
     
 }
