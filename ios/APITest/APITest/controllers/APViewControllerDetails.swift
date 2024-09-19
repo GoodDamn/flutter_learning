@@ -20,14 +20,24 @@ final class APViewControllerDetails
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
+        
         mLabelDesc = UILabel(
-            frame: view.frame
+            frame: CGRect(
+                x: 0,
+                y: 100,
+                width: view.frame.width,
+                height: view.frame.height
+            )
         )
         
-        mLabelDesc?.numberOfLines = 0
+        if let it = mLabelDesc {
+            it.numberOfLines = 25
+            view.addSubview(it)
+        }
+        mServiceDetails.delegateDetails = self
         
         if let id = channelId {
-            mServiceDetails.delegateDetails = self
             mServiceDetails.getChannelDetailsAsync(
                 id: id
             )
@@ -36,12 +46,13 @@ final class APViewControllerDetails
     
 }
 
-extension APViewControllerList
+extension APViewControllerDetails
 : APDelegateOnGetChannelDetails {
     
     func onGetChannelDetails(
         data: APModelChannelDetails
     ) {
+        print(data)
         mLabelDesc?.text = data.description
     }
     

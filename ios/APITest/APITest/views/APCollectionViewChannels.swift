@@ -18,6 +18,8 @@ final class APCollectionViewChannels
         }
     }
     
+    weak var navigationController: UINavigationController? = nil
+    
     private var mCellSize: CGSize = .zero
     
     init(
@@ -70,6 +72,24 @@ extension APCollectionViewChannels
         1
     }
     
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        guard let model = channels?[
+            indexPath.section
+        ] else {
+            return
+        }
+        
+        let controller = APViewControllerDetails()
+        controller.channelId = model.id
+        controller.title = model.name
+        navigationController?.pushViewController(
+            controller,
+            animated: true
+        )
+    }
     
     func collectionView(
         _ collectionView: UICollectionView,

@@ -27,6 +27,7 @@ final class APViewControllerList
         )
         
         if let it = mCollectionView {
+            it.navigationController = navigationController
             view.addSubview(it)
         }
         

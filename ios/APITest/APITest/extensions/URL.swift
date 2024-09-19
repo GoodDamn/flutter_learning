@@ -16,7 +16,7 @@ extension URL {
             with: URLRequest(
                 url: self
             )
-        ) { [weak self] data, response, error in
+        ) { data, response, error in
             
             guard let data = data, error == nil else {
                 return
