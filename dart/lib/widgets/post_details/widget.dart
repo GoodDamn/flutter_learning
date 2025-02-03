@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_learning/entities/posts/post_details.dart';
+import 'package:fckupFlutter/entities/posts/post_details.dart';
 
 class PostDetailsWidget extends StatelessWidget {
   final PostDetails postDetails;

@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/entities/posts/post_details.dart';
-import 'package:flutter_learning/shared/theme/theme.dart';
+import 'package:fckupFlutter/entities/posts/post_details.dart';
+import 'package:fckupFlutter/shared/theme/theme.dart';
 
 import '../../widgets/posts_list/posts_list.dart';
 
@@ -34,7 +34,6 @@ class HomePage extends StatefulWidget {
     const HomePage({super.key});
     @override
     State<HomePage> createState() => _HomePageState();
-
 }
 
 class _HomePageState extends State<HomePage> {
@@ -54,7 +53,7 @@ class _HomePageState extends State<HomePage> {
     @override
     Widget build(BuildContext context) {
         return Scaffold(
-            backgroundColor: ThemeColor.secondaryWhite,
+            backgroundColor: Colors.amber,
             appBar: AppBar(),
             body: FutureBuilder<List<PostDetails>>(
                 future: postDetails,

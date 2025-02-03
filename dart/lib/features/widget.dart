@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/app/theme/theme_data.dart';
-import 'package:flutter_learning/entities/posts/post_details.dart';
-import 'package:flutter_learning/pages/post_details/widget.dart';
+import 'package:fckupFlutter/app/theme/theme_data.dart';
+import 'package:fckupFlutter/entities/posts/post_details.dart';
+import 'package:fckupFlutter/pages/post_details/widget.dart';
 import 'package:go_router/go_router.dart';
 
 class PostCard extends StatelessWidget {
@@ -30,7 +30,7 @@ class PostCard extends StatelessWidget {
               )
           ),
           child: Padding(
-              padding:  const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               child: Expanded (
                   child: Padding(
                       padding: const EdgeInsets.only(

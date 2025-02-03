@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/entities/posts/post_details.dart';
-import 'package:flutter_learning/shared/ui/width_wrapper/width_wrapper.dart';
+import 'package:fckupFlutter/entities/posts/post_details.dart';
+import 'package:fckupFlutter/shared/ui/width_wrapper/width_wrapper.dart';
 import 'package:http/http.dart';
 
 

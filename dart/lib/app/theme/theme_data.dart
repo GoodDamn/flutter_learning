@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/widgets/search/ui/theme/colors.dart';
 import '../../shared/theme/theme_color.dart';
 
 class AppTheme {
@@ -11,9 +10,7 @@ class AppTheme {
       appBarTheme: _appBarTheme,
       textTheme: _textTheme,
       iconTheme: _iconTheme,
-      extensions: <ThemeExtension<dynamic>>[
-        SearchHeaderThemeColors.light
-      ]
+      extensions: const <ThemeExtension<dynamic>>[]
     );
   }
 }
