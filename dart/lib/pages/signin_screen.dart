@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fckupFlutter/pages/home/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -27,6 +28,12 @@ class _SignInPageState extends State<SignInPage> {
             email: email,
             password: password
         );
+
+        FirebaseFirestore.instance.collection(
+            "users"
+        ).doc(
+            FirebaseAuth.instance.currentUser?.uid
+        ).set({});
 
         Navigator.push(
             context,

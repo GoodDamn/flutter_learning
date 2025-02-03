@@ -21,10 +21,11 @@ class PostDetailsPage extends StatelessWidget {
   final String postDesc;
 
   void add() {
+
     FirebaseFirestore.instance.collection(
       "users"
     ).doc(
-      FirebaseAuth.instance.currentUser!.uid
+      FirebaseAuth.instance.currentUser?.uid
     ).update(
       {postId.toString(): 0}
     );
@@ -34,7 +35,7 @@ class PostDetailsPage extends StatelessWidget {
     FirebaseFirestore.instance.collection(
         "users"
     ).doc(
-      FirebaseAuth.instance.currentUser!.uid
+      FirebaseAuth.instance.currentUser?.uid
     ).update({postId.toString() : FieldValue.delete()});
   }
 
@@ -50,12 +51,13 @@ class PostDetailsPage extends StatelessWidget {
           stream: FirebaseFirestore.instance.collection(
             "users"
           ).doc(
-            FirebaseAuth.instance.currentUser!.uid
+            FirebaseAuth.instance.currentUser?.uid
           ).snapshots(),
           builder: (context, snapshot) {
 
             if (snapshot.hasData) {
-              if ((snapshot.data!.data()! as Map<String,dynamic>).containsKey(
+              Object? data = snapshot.data?.data();
+              if (data != null && (data as Map<String,dynamic>).containsKey(
                   postId.toString()
               )) {
                 isAdded = true;
@@ -63,7 +65,6 @@ class PostDetailsPage extends StatelessWidget {
                     "Remove favourites"
                 );
               }
-
             }
 
             if (snapshot.connectionState == ConnectionState.waiting) {
