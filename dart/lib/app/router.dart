@@ -24,14 +24,6 @@ final GoRouter router = GoRouter(
           child: const AuthPage(),
         );
       },
-    ),
-    GoRoute(
-      path: '/channels/:id',
-      pageBuilder: (context, state){
-        return const NoTransitionPage(
-          child: PostDetailsPage(postId: 1)
-        );
-      }
     )
 
   ],

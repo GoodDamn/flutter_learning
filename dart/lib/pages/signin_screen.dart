@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:fckupFlutter/pages/home/home_screen.dart';
-import 'package:fckupFlutter/pages/signin_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
@@ -12,19 +11,19 @@ import 'package:fckupFlutter/shared/theme/theme.dart';
 import '../../widgets/posts_list/posts_list.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class AuthPage extends StatefulWidget {
-    const AuthPage({super.key});
+class SignInPage extends StatefulWidget {
+    const SignInPage({super.key});
     @override
-    State<AuthPage> createState() => _AuthPageState();
+    State<SignInPage> createState() => _SignInPageState();
 }
 
-class _AuthPageState extends State<AuthPage> {
+class _SignInPageState extends State<SignInPage> {
     void onLogin(
         BuildContext context,
         String email,
         String password
     ) async {
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: email,
             password: password
         );
@@ -86,35 +85,7 @@ class _AuthPageState extends State<AuthPage> {
                                 )
                             ),
                             child: const Padding(
-                                padding: EdgeInsets.all(30),
-                                child: Text(
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 18.0,
-                                    ),
-                                    "Log in"
-                                ),
-                            ),
-                        )
-                    ),
-                    GestureDetector(
-                        onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SignInPage()
-                                )
-                            );
-                        },
-                        child: Container(
-                            decoration: const BoxDecoration(
-                                color: Colors.lightGreen,
-                                borderRadius: BorderRadius.all(
-                                    Radius.circular(20)
-                                )
-                            ),
-                            child: const Padding(
-                                padding: EdgeInsets.all(30),
+                                padding: EdgeInsets.all(10),
                                 child: Text(
                                     style: TextStyle(
                                         fontWeight: FontWeight.w700,

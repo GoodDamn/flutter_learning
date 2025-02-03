@@ -19,6 +19,7 @@ class PostCard extends StatelessWidget {
           context,
           MaterialPageRoute(builder: (context) => PostDetailsPage(
               postId: post.id,
+              postDesc: post.description,
           ))
         );
       },

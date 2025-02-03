@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -8,67 +10,97 @@ import 'package:fckupFlutter/shared/ui/width_wrapper/width_wrapper.dart';
 import 'package:http/http.dart';
 
 
-PostDetails parsePost(String responseBody) {
-  final parsed = jsonDecode(responseBody);
-
-  return PostDetails(
-      id: parsed["id"] as int,
-      name: parsed["body"] as String,
-      description: parsed["body"] as String
-  );
-}
-
-Future<PostDetails> fetchPost(
-    Client client,
-    int postId
-) async {
-  final response = await client.get(
-      Uri.parse("https://jsonplaceholder.typicode.com/posts/$postId")
-  );
-
-  return compute(
-    parsePost,
-    response.body
-  );
-}
 
 class PostDetailsPage extends StatelessWidget {
   const PostDetailsPage({
     required this.postId,
+    required this.postDesc,
     super.key
   });
   final int postId;
+  final String postDesc;
+
+  void add() {
+    FirebaseFirestore.instance.collection(
+      "users"
+    ).doc(
+      FirebaseAuth.instance.currentUser!.uid
+    ).update(
+      {postId.toString(): 0}
+    );
+  }
+
+  void remove() {
+    FirebaseFirestore.instance.collection(
+        "users"
+    ).doc(
+      FirebaseAuth.instance.currentUser!.uid
+    ).update({postId.toString() : FieldValue.delete()});
+  }
 
   @override
   Widget build(
       BuildContext context
   ) {
-    return FutureBuilder(
-        future: fetchPost(Client(), postId),
-        builder: (context, snapshot) {
+      Text text = const Text(
+          "Add to favourites"
+      );
+      bool isAdded = false;
+      return StreamBuilder<DocumentSnapshot>(
+          stream: FirebaseFirestore.instance.collection(
+            "users"
+          ).doc(
+            FirebaseAuth.instance.currentUser!.uid
+          ).snapshots(),
+          builder: (context, snapshot) {
+
             if (snapshot.hasData) {
-                return Scaffold(
-                    body: SingleChildScrollView(
-                        child: WidthWrapper(
-                            child: Padding(
-                                padding: const EdgeInsets.all(20),
-                                child: Text(
-                                  snapshot.data!.description
-                                )
-                            )
-                        )
-                    )
+              if ((snapshot.data!.data()! as Map<String,dynamic>).containsKey(
+                  postId.toString()
+              )) {
+                isAdded = true;
+                text = const Text(
+                    "Remove favourites"
                 );
-            } else if (snapshot.hasError) {
-              return const Center(
-                child: Text('An error has occurred!'),
-              );
-            } else {
+              }
+
+            }
+
+            if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
             }
-        }
-    );
+            return Scaffold(
+                backgroundColor: Colors.blueAccent,
+                appBar: AppBar(),
+                body: Center(
+                  child: GestureDetector(
+                      onTap: () {
+                        if (isAdded) {
+                          remove();
+                          isAdded = false;
+                          return;
+                        }
+                        add();
+                        isAdded = true;
+                      },
+                      child: Column(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(20.0),
+                              color: Colors.cyan,
+                              child: text,
+                            ),
+                            Text(
+                              postDesc
+                            )
+                          ],
+                      )
+                  )
+                )
+            );
+          }
+      );
   }
 }

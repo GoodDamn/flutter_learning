@@ -16,8 +16,8 @@ class PostDetails {
   ) {
     return PostDetails(
         id: json["id"] as int,
-        name: json["title"] as String,
-        description: json["body"] as String
+        name: json["name"] as String,
+        description: json["desc"] as String
     );
   }
 
