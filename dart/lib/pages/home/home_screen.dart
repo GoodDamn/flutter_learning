@@ -53,11 +53,18 @@ class _HomePageState extends State<HomePage> {
                     );
                 }).toList();
 
-                return Scaffold(
-                    backgroundColor: Colors.brown,
-                    appBar: AppBar(),
-                    body: ListView(
-                        children: c
+                return WillPopScope(
+                    onWillPop: () async {
+                        await FirebaseAuth.instance.signOut();
+                        print("logout");
+                        return true;
+                    },
+                    child: Scaffold(
+                        backgroundColor: Colors.brown,
+                        appBar: AppBar(),
+                        body: ListView(
+                            children: c
+                        )
                     )
                 );
             }
